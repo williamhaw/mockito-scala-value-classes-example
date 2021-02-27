@@ -1,4 +1,6 @@
+# Using Mockito with Scala Value Classes Examples
 
+Blog post: [https://williamhaw.com/using-mockito-with-scala-value-classes/](https://williamhaw.com/using-mockito-with-scala-value-classes/)
 
 ## Example Classes
 - [MyId Value Class](src/main/scala/com/williamhaw/MyId.scala)
