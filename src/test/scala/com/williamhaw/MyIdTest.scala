@@ -12,6 +12,6 @@ class MyIdTest extends AnyFlatSpec with Matchers with MockitoSugar {
         val mockService = mock[ExampleService]
         val caller = new Caller(mockService)
         caller.businessLogic(MyId(1))
-        verify(mockService).exists(MyId(any[Int]))
+        verify(mockService).exists(MyId(any[Int])) // if instead defined as .exists(any[MyId]), throws NullPointerException
     }
 }
