@@ -1,6 +1,5 @@
 package com.williamhaw
 
-import org.mockito.ArgumentMatchers.any
 import org.specs2.mock.Mockito
 import org.specs2.mutable.Specification
 
@@ -11,6 +10,14 @@ class MyIdSpec extends Specification with Mockito{
       val caller = new Caller(mockService)
       caller.businessLogic(MyId(1))
       there was one(mockService).exists(MyId(any[Int])) // if instead defined as .exists(any[MyId]), throws NullPointerException
+    }
+
+    "return true if all users exist" in {
+      val mockService = mock[ExampleService]
+      mockService.exists(MyId(any[Int])).returns(true) // if instead defined as .exists(any[MyId]), throws NullPointerException
+
+      val caller = new Caller(mockService)
+      caller.businessLogic(MyId(1)) shouldEqual true
     }
   }
 }
